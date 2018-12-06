@@ -1,0 +1,8 @@
+---
+- hosts: nodes
+  tasks:
+  - name: Create a file
+    file:
+      path: /home/ubuntu/test.txt
+      state: touch
+
