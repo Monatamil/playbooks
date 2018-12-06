@@ -1,0 +1,23 @@
+---
+- hosts: nodes
+  tasks:
+  - name: install nginx
+    package:
+      name: nginx
+      state: present
+  - name: start nginx
+    service:
+      name: nginx
+      state: started
+  - name: Update config file
+    copy:
+      src: default
+      dest: /etc/nginx/sites-available/default
+  - name: Reload
+    service:
+      name: nginx
+      state: restarted
+  - name: copy index.html
+    copy:
+      content: "<h1> Welcome to Nginx </h1>"
+      dest: /var/www/html/index.html
