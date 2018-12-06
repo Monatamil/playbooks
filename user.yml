@@ -1,9 +1,9 @@
 ---
 - hosts: nodes
   vars:
-    user1: "Priya"
-    user2: "Vignesh"
-    user3: "kanna"  
+    user1: "Mona"
+    user2: "Vini"
+    user3: "keerthi"  
   tasks:
   - name: Create a user
     user:
@@ -13,4 +13,13 @@
       - user1
       - user2
       - user3
+    notify:
+      - add user
+   
+  handlers:
+    - name: add user
+      user:
+        name: "jan"
+        state: present
+  
 
