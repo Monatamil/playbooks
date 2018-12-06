@@ -1,0 +1,16 @@
+---
+- hosts: nodes
+  vars:
+    user_name: Priya
+  tasks:
+  - name: Create user named {{ user_name }}
+    user:
+      name: "{{ user_name }}"
+      state: present
+  - name: Install multiple packages
+    package:
+      name: "{{ item }}"
+      state: installed
+    with_items:
+      - gcc
+      - ntp
