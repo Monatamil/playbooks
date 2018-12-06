@@ -11,5 +11,5 @@
       state: stopped
   - name: copy index.html
     copy:
-      src: index.html
+      content: "<h1> Copy content </h1>"
       dest: /var/www/html/index.html
